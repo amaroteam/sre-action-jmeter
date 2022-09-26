@@ -49,10 +49,7 @@ runs:
     - "${{ inputs.testFilePath }}"
     - "-l"
     - "jmeter_log.log"
-    - "-e"
     - "-f"
-    - "-o"
-    - "${{ inputs.outputReportsFolder }}"
     - "${{ inputs.args }}"
 
 branding:
