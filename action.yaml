@@ -4,8 +4,8 @@ description: Github action for running a load test using Jmeter. Included with p
 author: QA-Performance-Engineering <QA-Performance-Engineering@betssongroup.com>
 
 inputs:
-  testFilePath:
-    description: The path to the JMX test file
+  logFilePath:
+    description: The path to the log results file
     required: true
   outputReportsFolder:
     description: The folder where the JMeter reports will be published
@@ -45,12 +45,9 @@ runs:
   image: 'Dockerfile'
   args:
     - "-n"
-    - "-t"
-    - "${{ inputs.testFilePath }}"
-    - "-l"
-    - "jmeter_log.log"
-    - "-e"
     - "-f"
+    - "-g"
+    - "${{ inputs.logFilePath }}"
     - "-o"
     - "${{ inputs.outputReportsFolder }}"
     - "${{ inputs.args }}"
